@@ -1,0 +1,38 @@
+# RWA Platform Docker Compose Configuration
+version: '3.8'
+
+services:
+  rwa-platform:
+    build: .
+    container_name: rwa-yield-analyzer
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    networks:
+      - rwa-network
+    
+  # Optional: Redis for caching (future enhancement)
+  redis:
+    image: redis:7-alpine
+    container_name: rwa-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - rwa-network
+    profiles:
+      - with-redis
+
+networks:
+  rwa-network:
+    driver: bridge
+
+volumes:
+  redis_data:
