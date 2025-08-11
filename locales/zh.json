@@ -1,0 +1,277 @@
+{
+  "app": {
+    "title": "RWA收益优化器",
+    "subtitle": "专业的实物资产投资分析平台",
+    "description": "基于AI驱动的投资分析，提供实时数据和多模型预测"
+  },
+  "navigation": {
+    "dashboard": "实时数据仪表盘",
+    "predictions": "AI智能预测",
+    "optimizer": "投资组合优化器",
+    "comparison": "协议对比分析",
+    "settings": "系统设置"
+  },
+  "dashboard": {
+    "title": "实时数据仪表盘",
+    "description": "实时监控RWA协议收益数据 - 通过直观的图表和指标卡片，快速掌握市场动态，发现投资机会",
+    "kpi": {
+      "total_protocols": "总协议数",
+      "average_apy": "平均APY",
+      "total_tvl": "总锁仓量",
+      "last_updated": "最后更新",
+      "title": "关键绩效指标"
+    },
+    "protocols": {
+      "eth_staking": "ETH质押",
+      "stablecoin_lending": "稳定币借贷",
+      "tokenized_real_estate": "代币化房地产",
+      "fixed_income_bonds": "固定收益债券",
+      "quantitative_strategy": "量化策略基金"
+    },
+    "controls": {
+      "refresh_data": "刷新数据",
+      "auto_refresh": "自动刷新",
+      "time_range": "时间范围",
+      "system_online": "系统在线"
+    },
+    "charts": {
+      "apy_trends": "30天APY趋势",
+      "protocol_details": "协议详细信息"
+    },
+    "messages": {
+      "data_updated": "数据更新成功！",
+      "fetching_data": "正在获取最新数据...",
+      "never_updated": "从未更新",
+      "no_data": "暂无协议数据。请先刷新数据。",
+      "no_data_from_dashboard": "暂无协议数据。请先从仪表盘刷新数据。"
+    }
+  },
+  "predictions": {
+    "title": "AI智能预测",
+    "description": "多模型AI协同预测 - 整合GPT-4、Claude-3.5和Gemini-Pro的智慧，为您提供精准的收益预测分析",
+    "parameters": {
+      "select_protocol": "选择协议",
+      "prediction_timeframe": "预测时间范围",
+      "ai_models": "AI模型",
+      "generate_predictions": "生成AI预测"
+    },
+    "timeframes": {
+      "30d": "30天",
+      "90d": "90天",
+      "180d": "180天",
+      "365d": "365天"
+    },
+    "models": {
+      "gpt4": "GPT-4",
+      "claude": "Claude-3.5",
+      "gemini": "Gemini-Pro"
+    },
+    "results": {
+      "title": "预测结果",
+      "predicted_apy": "预测APY",
+      "confidence_score": "置信度评分",
+      "expected_change": "预期变化",
+      "risk_level": "风险等级"
+    },
+    "analysis": {
+      "ai_details": "AI分析详情",
+      "reasoning": "AI推理过程",
+      "risk_factors": "风险因素",
+      "full_report": "完整AI报告",
+      "model_comparison": "多模型对比（3D视图）"
+    },
+    "messages": {
+      "analyzing": "AI模型正在分析中...",
+      "completed": "AI预测完成！",
+      "failed": "预测失败"
+    }
+  },
+  "optimizer": {
+    "title": "投资组合优化器",
+    "description": "智能资产配置优化 - 运用现代投资组合理论，在多个RWA协议间智能分配资金，最大化收益控制风险",
+    "parameters": {
+      "title": "投资参数",
+      "investment_amount": "投资金额",
+      "risk_tolerance": "风险偏好",
+      "optimize_portfolio": "优化投资组合"
+    },
+    "risk_levels": {
+      "low": "低风险",
+      "medium": "中等风险",
+      "high": "高风险"
+    },
+    "results": {
+      "title": "投资组合指标",
+      "expected_apy": "预期APY",
+      "expected_return": "预期收益",
+      "risk_score": "风险评分",
+      "sharpe_ratio": "夏普比率"
+    },
+    "visualization": {
+      "portfolio_allocation": "投资组合配置",
+      "investment_amounts": "投资金额",
+      "detailed_allocation": "详细分配"
+    },
+    "export": {
+      "title": "导出选项",
+      "csv_export": "CSV导出",
+      "json_export": "JSON导出",
+      "generate_report": "生成报告"
+    },
+    "messages": {
+      "optimizing": "正在优化投资组合...",
+      "completed": "投资组合优化完成！",
+      "failed": "优化失败"
+    }
+  },
+  "comparison": {
+    "title": "协议对比分析",
+    "description": "全方位协议对比分析 - 通过多维度评分热力图和AI智能推荐，深入了解各RWA协议的优劣势",
+    "selection": {
+      "title": "选择要对比的协议",
+      "select_protocols": "请选择至少2个协议进行对比"
+    },
+    "recommendations": {
+      "title": "AI智能投资推荐",
+      "description": "基于当前市场数据，我们推荐以下配置：",
+      "view_details": "查看更多详情"
+    },
+    "heatmap": {
+      "title": "多维度协议评分热力图",
+      "dimensions": {
+        "apy_score": "APY评分",
+        "safety_score": "安全评分",
+        "tvl_score": "TVL评分",
+        "liquidity_score": "流动性评分",
+        "risk_adjusted": "风险调整收益",
+        "market_cap": "市值评分"
+      }
+    },
+    "radar": {
+      "title": "关键绩效指标",
+      "categories": {
+        "apy_score": "APY评分",
+        "safety_score": "安全评分",
+        "liquidity_score": "流动性评分",
+        "yield_stability": "收益稳定性",
+        "market_cap_score": "市值评分"
+      }
+    },
+    "table": {
+      "title": "详细对比表格",
+      "protocol": "协议",
+      "apy": "APY (%)",
+      "risk_score": "风险评分",
+      "asset_type": "资产类型",
+      "tvl": "TVL",
+      "active_pools": "活跃池数",
+      "min_investment": "最小投资额",
+      "lock_period": "锁定期",
+      "status": "状态"
+    },
+    "recommendations_section": {
+      "title": "投资建议",
+      "best_performers": {
+        "highest_apy": "最高APY",
+        "safest": "最安全",
+        "largest_tvl": "最大TVL",
+        "best_risk_adjusted": "最佳风险调整收益"
+      },
+      "strategies": {
+        "conservative": "保守策略",
+        "balanced": "平衡策略",
+        "aggressive": "激进策略",
+        "diversified": "多元化策略"
+      }
+    },
+    "messages": {
+      "select_protocols": "请在上方选择至少2个协议以查看AI智能投资推荐。",
+      "detailed_analysis": "详细分析即将推出！"
+    }
+  },
+  "settings": {
+    "title": "系统设置",
+    "description": "个性化配置管理中心 - 配置API密钥、调整应用设置、管理数据存储，让系统保持最佳运行状态",
+    "api": {
+      "title": "API配置",
+      "openrouter_key": "OpenRouter API密钥",
+      "anthropic_key": "Anthropic API密钥",
+      "save_keys": "保存API密钥"
+    },
+    "application": {
+      "title": "应用设置",
+      "auto_refresh": "自动刷新",
+      "refresh_interval": "刷新间隔",
+      "theme": "主题",
+      "language": "语言",
+      "save_settings": "保存设置"
+    },
+    "data": {
+      "title": "数据管理",
+      "clean_old_data": "清理旧数据",
+      "database_stats": "数据库统计",
+      "reset_data": "重置所有数据",
+      "protocols_count": "个协议在数据库中"
+    },
+    "system": {
+      "title": "系统状态",
+      "status_online": "系统在线",
+      "status_waiting": "等待数据",
+      "last_update": "最后更新",
+      "quick_actions": "快速操作",
+      "quick_refresh": "快速刷新"
+    },
+    "messages": {
+      "keys_saved": "API密钥保存成功！",
+      "settings_saved": "设置保存成功！",
+      "data_cleaned": "旧数据清理成功！",
+      "data_reset": "所有数据已重置！",
+      "cannot_undo": "此操作无法撤销！"
+    }
+  },
+  "common": {
+    "buttons": {
+      "save": "保存",
+      "cancel": "取消",
+      "refresh": "刷新",
+      "export": "导出",
+      "import": "导入",
+      "delete": "删除",
+      "edit": "编辑",
+      "view": "查看",
+      "close": "关闭",
+      "submit": "提交"
+    },
+    "status": {
+      "loading": "加载中...",
+      "success": "成功",
+      "error": "错误",
+      "warning": "警告",
+      "info": "信息",
+      "active": "活跃",
+      "inactive": "非活跃"
+    },
+    "time": {
+      "minutes": "分钟",
+      "hours": "小时",
+      "days": "天",
+      "weeks": "周",
+      "months": "月",
+      "years": "年"
+    },
+    "units": {
+      "usd": "美元",
+      "percentage": "%",
+      "million": "百万",
+      "billion": "十亿",
+      "thousand": "千"
+    },
+    "messages": {
+      "no_data": "暂无数据",
+      "loading_data": "正在加载数据...",
+      "error_loading": "数据加载错误",
+      "try_again": "请重试",
+      "coming_soon": "即将推出"
+    }
+  }
+}

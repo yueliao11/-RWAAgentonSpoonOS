@@ -23,6 +23,7 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from services.data_service import RWADataService
+from utils.i18n import get_i18n, t, create_language_selector
 
 # Color conversion utility function
 def hex_to_rgba(hex_color, alpha=0.2):
@@ -633,13 +634,13 @@ def create_heatmap_comparison(protocols_data):
 
 def show_realtime_dashboard():
     """Real-time data dashboard - Professional dashboard display"""
-    st.markdown('<h1 class="main-title">🏠 实时数据仪表盘</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h1 class="main-title">🏠 {t("dashboard.title")}</h1>', unsafe_allow_html=True)
     
     # 添加功能介绍
-    st.markdown("""
+    st.markdown(f"""
     <div style="background: rgba(59, 130, 246, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid #3b82f6;">
         <p style="color: #e2e8f0; margin: 0; font-size: 1rem;">
-        📊 <strong>实时监控RWA协议收益数据</strong> - 通过直观的图表和指标卡片，快速掌握市场动态，发现投资机会
+        📊 <strong>{t("dashboard.description")}</strong>
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -650,29 +651,29 @@ def show_realtime_dashboard():
     col1, col2, col3, col4 = st.columns([2, 2, 2, 2])
     
     with col1:
-        if st.button("🔄 Refresh Data", key="refresh_main"):
-            with st.spinner("🌐 Fetching latest data..."):
+        if st.button(f"🔄 {t('dashboard.controls.refresh_data')}", key="refresh_main"):
+            with st.spinner(f"🌐 {t('dashboard.messages.fetching_data')}"):
                 results = run_async(data_service.refresh_protocol_data())
                 if "error" not in results:
-                    st.success("✅ Data updated successfully!")
+                    st.success(f"✅ {t('dashboard.messages.data_updated')}")
                     st.session_state.last_refresh = datetime.now()
                     time.sleep(1)
                     st.rerun()
     
     with col2:
-        auto_refresh = st.checkbox("🔄 Auto Refresh", value=False)
+        auto_refresh = st.checkbox(f"🔄 {t('dashboard.controls.auto_refresh')}", value=False)
         if auto_refresh:
             time.sleep(5)
             st.rerun()
     
     with col3:
-        time_range = st.selectbox("📅 Time Range", ["24H", "7D", "30D", "90D"], index=1)
+        time_range = st.selectbox(f"📅 {t('dashboard.controls.time_range')}", ["24H", "7D", "30D", "90D"], index=1)
     
     with col4:
         st.markdown(f"""
         <div class="metric-card">
             <div class="status-indicator status-online"></div>
-            <span style="color: white;">System Online</span>
+            <span style="color: white;">{t('dashboard.controls.system_online')}</span>
         </div>
         """, unsafe_allow_html=True)
     
@@ -681,11 +682,11 @@ def show_realtime_dashboard():
     protocols = summary.get('protocols', [])
     
     if not protocols:
-        st.warning("⚠️ No protocol data available. Please refresh data first.")
+        st.warning(f"⚠️ {t('dashboard.messages.no_data')}")
         return
     
     # Key metrics cards
-    st.markdown("### 📊 Key Performance Indicators")
+    st.markdown(f"### 📊 {t('dashboard.kpi.title', default='Key Performance Indicators')}")
     
     col1, col2, col3, col4 = st.columns(4)
     
@@ -835,13 +836,13 @@ def show_realtime_dashboard():
 # Multi-model prediction page
 def show_ai_predictions():
     """Multi-model AI prediction page"""
-    st.markdown('<h1 class="main-title">🤖 AI智能预测</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h1 class="main-title">🤖 {t("predictions.title")}</h1>', unsafe_allow_html=True)
     
     # 添加功能介绍
-    st.markdown("""
+    st.markdown(f"""
     <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid #10b981;">
         <p style="color: #e2e8f0; margin: 0; font-size: 1rem;">
-        🧠 <strong>多模型AI协同预测</strong> - 整合GPT-4、Claude-3.5和Gemini-Pro的智慧，为您提供精准的收益预测分析
+        🧠 <strong>{t("predictions.description")}</strong>
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -850,11 +851,11 @@ def show_ai_predictions():
     protocols = data_service.get_all_protocols_data()
     
     if not protocols:
-        st.warning("⚠️ No protocol data available. Please refresh data from Dashboard first.")
+        st.warning(f"⚠️ {t('dashboard.messages.no_data_from_dashboard')}")
         return
     
     # Prediction parameter control panel
-    st.markdown("### 🎛️ Prediction Parameters")
+    st.markdown(f"### 🎛️ {t('predictions.parameters.title', default='Prediction Parameters')}")
     
     col1, col2, col3 = st.columns([2, 2, 2])
     
@@ -993,13 +994,13 @@ def show_ai_predictions():
 # Portfolio optimization page
 def show_portfolio_optimizer():
     """Portfolio optimization page - Professional portfolio analysis"""
-    st.markdown('<h1 class="main-title">💼 投资组合优化器</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h1 class="main-title">💼 {t("optimizer.title")}</h1>', unsafe_allow_html=True)
     
-    # 添加功能介绍
-    st.markdown("""
+    # Add feature introduction
+    st.markdown(f"""
     <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid #f59e0b;">
         <p style="color: #e2e8f0; margin: 0; font-size: 1rem;">
-        🎯 <strong>智能资产配置优化</strong> - 运用现代投资组合理论，在多个RWA协议间智能分配资金，最大化收益控制风险
+        🎯 <strong>{t("optimizer.description")}</strong>
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -1008,11 +1009,11 @@ def show_portfolio_optimizer():
     protocols = data_service.get_all_protocols_data()
     
     if not protocols:
-        st.warning("⚠️ No protocol data available. Please refresh data from Dashboard first.")
+        st.warning(f"⚠️ {t('dashboard.messages.no_data_from_dashboard')}")
         return
     
     # Investment parameter settings
-    st.markdown("### 🎛️ Investment Parameters")
+    st.markdown(f"### 🎛️ {t('optimizer.parameters.title')}")
     
     col1, col2, col3 = st.columns([2, 2, 2])
     
@@ -1063,7 +1064,7 @@ def show_portfolio_optimizer():
         metrics = optimization["portfolio_metrics"]
         
         # Portfolio metrics
-        st.markdown("### 📊 Portfolio Metrics")
+        st.markdown(f"### 📊 {t('optimizer.results.title')}")
         
         col1, col2, col3, col4 = st.columns(4)
         
@@ -1104,7 +1105,7 @@ def show_portfolio_optimizer():
         col1, col2 = st.columns(2)
         
         with col1:
-            st.markdown("### 🥧 Portfolio Allocation")
+            st.markdown(f"### 🥧 {t('optimizer.visualization.portfolio_allocation')}")
             
             # Create 3D pie chart
             fig_pie = go.Figure(data=[go.Pie(
@@ -1141,7 +1142,7 @@ def show_portfolio_optimizer():
             st.plotly_chart(fig_pie, use_container_width=True)
         
         with col2:
-            st.markdown("### 📊 Investment Amounts")
+            st.markdown(f"### 📊 {t('optimizer.visualization.investment_amounts')}")
             
             # Create bar chart
             fig_bar = go.Figure(data=[go.Bar(
@@ -1195,7 +1196,7 @@ def show_portfolio_optimizer():
         st.dataframe(df_allocation, use_container_width=True, height=300)
         
         # Export functionality
-        st.markdown("### 📥 Export Options")
+        st.markdown(f"### 📥 {t('optimizer.export.title')}")
         
         col1, col2, col3 = st.columns(3)
         
@@ -1269,13 +1270,13 @@ Allocation Details:
 # Protocol comparison page
 def show_protocol_comparison():
     """Protocol comparison page - Professional comparative analysis"""
-    st.markdown('<h1 class="main-title">📊 协议对比分析</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h1 class="main-title">📊 {t("comparison.title")}</h1>', unsafe_allow_html=True)
     
-    # 添加功能介绍
-    st.markdown("""
+    # Add feature introduction
+    st.markdown(f"""
     <div style="background: rgba(139, 92, 246, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid #8b5cf6;">
         <p style="color: #e2e8f0; margin: 0; font-size: 1rem;">
-        🔥 <strong>全方位协议对比分析</strong> - 通过多维度评分热力图和AI智能推荐，深入了解各RWA协议的优劣势
+        🔥 <strong>{t("comparison.description")}</strong>
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -1291,11 +1292,11 @@ def show_protocol_comparison():
     protocols = data_service.get_all_protocols_data()
     
     if not protocols:
-        st.warning("⚠️ No protocol data available. Please refresh data from Dashboard first.")
+        st.warning(f"⚠️ {t('dashboard.messages.no_data_from_dashboard')}")
         return
     
     # Protocol selection
-    st.markdown("### 🎯 Select Protocols to Compare")
+    st.markdown(f"### 🎯 {t('comparison.selection.title')}")
     
     protocol_names = [p.protocol for p in protocols]
     selected_protocols = st.multiselect(
@@ -1320,8 +1321,8 @@ def show_protocol_comparison():
         try:
             st.markdown('<div class="metric-card" style="padding: 1.5rem; height: 500px; overflow-y: auto;">', unsafe_allow_html=True)
             
-            st.markdown("### 💡 AI Smart Investment Recommendations")
-            st.markdown("Based on current market data, we recommend the following allocation:")
+            st.markdown(f"### 💡 {t('comparison.recommendations.title')}")
+            st.markdown(t('comparison.recommendations.description'))
             
             # 使用实际的协议数据来生成推荐
             if selected_data and len(selected_data) > 0:
@@ -1363,12 +1364,12 @@ def show_protocol_comparison():
             
         except Exception as e:
             st.error(f"Error rendering recommendations: {str(e)}")
-            st.markdown("### 💡 AI Smart Investment Recommendations")
+            st.markdown(f"### 💡 {t('comparison.recommendations.title')}")
             st.info("Recommendations will appear here once protocols are selected.")
     
     with col2:
         # Multi-Dimensional Protocol Scoring Heatmap - Reference design right side
-        st.markdown("### Multi-Dimensional Protocol Scoring Heatmap")
+        st.markdown(f"### {t('comparison.heatmap.title')}")
         st.markdown('<p style="color: #94a3b8; margin-bottom: 1rem;">Visualize protocol performance through key indicators.</p>', unsafe_allow_html=True)
     
         # 使用实际选中的协议数据创建热力图
@@ -1438,7 +1439,7 @@ def show_protocol_comparison():
         st.plotly_chart(fig_heatmap, use_container_width=True)
     
     # Key Performance Indicators Radar Chart - Reference design bottom
-    st.markdown("### Key Performance Indicators Radar Chart")
+    st.markdown(f"### {t('comparison.radar.title')}")
     st.markdown('<p style="color: #94a3b8; margin-bottom: 1rem;">Compare comprehensive performance indicators of selected protocols.</p>', unsafe_allow_html=True)
     
     # Create radar chart
@@ -1503,21 +1504,21 @@ def show_protocol_comparison():
     st.plotly_chart(fig_radar, use_container_width=True)
     
     # Detailed comparison table
-    st.markdown("### 📊 Detailed Comparison Table")
+    st.markdown(f"### 📊 {t('comparison.table.title')}")
     
     comparison_data = []
     for protocol_name in selected_protocols:
         protocol_data = selected_data[protocol_name]
         comparison_data.append({
-            'Protocol': protocol_name.title(),
-            'APY (%)': f"{protocol_data.current_apy:.2f}%",
-            'Risk Score': f"{protocol_data.risk_score:.3f}",
+            t('comparison.table.protocol'): protocol_name.title(),
+            t('comparison.table.apy'): f"{protocol_data.current_apy:.2f}%",
+            t('comparison.table.risk_score'): f"{protocol_data.risk_score:.3f}",
             'Risk Level': 'Low' if protocol_data.risk_score < 0.4 else 'Medium' if protocol_data.risk_score < 0.7 else 'High',
-            'Asset Type': protocol_data.asset_type,
-            'TVL ($M)': f"${protocol_data.tvl/1000000:.1f}M",
-            'Active Pools': protocol_data.active_pools,
-            'Min Investment': f"${protocol_data.min_investment:,.0f}",
-            'Lock Period': protocol_data.lock_period,
+            t('comparison.table.asset_type'): protocol_data.asset_type,
+            t('comparison.table.tvl'): f"${protocol_data.tvl/1000000:.1f}M",
+            t('comparison.table.active_pools'): protocol_data.active_pools,
+            t('comparison.table.min_investment'): f"${protocol_data.min_investment:,.0f}",
+            t('comparison.table.lock_period'): protocol_data.lock_period,
             'Risk-Adj APY': f"{protocol_data.current_apy/(1+protocol_data.risk_score):.2f}%"
         })
     
@@ -1525,7 +1526,7 @@ def show_protocol_comparison():
     st.dataframe(df_comparison, use_container_width=True, height=400)
     
     # Investment recommendations
-    st.markdown("### 💡 Investment Recommendations")
+    st.markdown(f"### 💡 {t('comparison.recommendations_section.title')}")
     
     # Find best protocols
     best_apy = max(selected_data.values(), key=lambda x: x.current_apy)
@@ -1560,13 +1561,13 @@ def show_protocol_comparison():
 # Settings page
 def show_settings():
     """Settings page"""
-    st.markdown('<h1 class="main-title">⚙️ 系统设置</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h1 class="main-title">⚙️ {t("settings.title")}</h1>', unsafe_allow_html=True)
     
     # 添加功能介绍
-    st.markdown("""
+    st.markdown(f"""
     <div style="background: rgba(107, 114, 128, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid #6b7280;">
         <p style="color: #e2e8f0; margin: 0; font-size: 1rem;">
-        🔑 <strong>个性化配置管理中心</strong> - 配置API密钥、调整应用设置、管理数据存储，让系统保持最佳运行状态
+        🔑 <strong>{t("settings.description")}</strong>
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -1574,14 +1575,14 @@ def show_settings():
     data_service = st.session_state.data_service
     
     # API configuration
-    st.markdown("### 🔑 API Configuration")
+    st.markdown(f"### 🔑 {t('settings.api.title')}")
     
     with st.form("api_settings"):
         col1, col2 = st.columns(2)
         
         with col1:
             openai_key = st.text_input(
-                "OpenRouter API Key",
+                t('settings.api.openrouter_key'),
                 value=data_service.get_user_setting("openai_api_key", ""),
                 type="password",
                 help="Your OpenRouter API key for AI predictions"
@@ -1589,13 +1590,13 @@ def show_settings():
         
         with col2:
             anthropic_key = st.text_input(
-                "Anthropic API Key",
+                t('settings.api.anthropic_key'),
                 value=data_service.get_user_setting("anthropic_api_key", ""),
                 type="password",
                 help="Your Anthropic API key (optional)"
             )
         
-        if st.form_submit_button("💾 Save API Keys", type="primary"):
+        if st.form_submit_button(f"💾 {t('settings.api.save_keys')}", type="primary"):
             if openai_key:
                 data_service.save_user_setting("openai_api_key", openai_key)
                 os.environ['OPENAI_API_KEY'] = openai_key
@@ -1603,29 +1604,29 @@ def show_settings():
                 data_service.save_user_setting("anthropic_api_key", anthropic_key)
                 os.environ['ANTHROPIC_API_KEY'] = anthropic_key
             
-            st.success("✅ API keys saved successfully!")
+            st.success(f"✅ {t('settings.messages.keys_saved')}")
     
     # Application settings
-    st.markdown("### 🎛️ Application Settings")
+    st.markdown(f"### 🎛️ {t('settings.application.title')}")
     
     with st.form("app_settings"):
-        col1, col2 = st.columns(2)
+        col1, col2, col3 = st.columns(3)
         
         with col1:
             auto_refresh = st.checkbox(
-                "🔄 Auto-refresh data",
+                f"🔄 {t('settings.application.auto_refresh')}",
                 value=data_service.get_user_setting("auto_refresh", "false") == "true"
             )
             
             refresh_interval = st.selectbox(
-                "⏰ Refresh interval (minutes)",
+                f"⏰ {t('settings.application.refresh_interval')}",
                 [1, 5, 10, 15, 30, 60],
                 index=2
             )
         
         with col2:
             theme = st.selectbox(
-                "🎨 Theme",
+                f"🎨 {t('settings.application.theme')}",
                 ["Dark (Recommended)", "Light"],
                 index=0
             )
@@ -1636,12 +1637,18 @@ def show_settings():
                 index=0
             )
         
-        if st.form_submit_button("💾 Save Settings", type="primary"):
+        with col3:
+            # Language selector
+            i18n = get_i18n()
+            st.markdown(f"**🌐 {t('settings.application.language')}**")
+            i18n.create_language_selector("settings_language")
+        
+        if st.form_submit_button(f"💾 {t('settings.application.save_settings')}", type="primary"):
             data_service.save_user_setting("auto_refresh", str(auto_refresh).lower())
             data_service.save_user_setting("refresh_interval", str(refresh_interval))
             data_service.save_user_setting("theme", theme)
             data_service.save_user_setting("chart_style", chart_style)
-            st.success("✅ Settings saved successfully!")
+            st.success(f"✅ {t('settings.messages.settings_saved')}")
     
     # Data management
     st.markdown("### 🗄️ Data Management")
@@ -1671,9 +1678,18 @@ def main():
     with st.sidebar:
         st.markdown('<h2 style="color: #00d4ff; text-align: center;">🚀 RWA Optimizer Pro</h2>', unsafe_allow_html=True)
         
+        # Get navigation options based on current language
+        nav_options = [
+            t('navigation.dashboard'),
+            t('navigation.predictions'), 
+            t('navigation.optimizer'),
+            t('navigation.comparison'),
+            t('navigation.settings')
+        ]
+        
         selected = option_menu(
             menu_title=None,
-            options=["实时数据仪表盘", "AI智能预测", "投资组合优化器", "协议对比分析", "系统设置"],
+            options=nav_options,
             icons=["speedometer2", "robot", "pie-chart", "bar-chart", "gear"],
             menu_icon="cast",
             default_index=0,
@@ -1710,28 +1726,28 @@ def main():
         
         # Status information
         st.markdown("---")
-        st.markdown("### 📡 系统状态")
+        st.markdown(f"### 📡 {t('settings.system.title')}")
         
         if st.session_state.last_refresh:
             status_color = "status-online"
-            status_text = "系统在线"
+            status_text = t('settings.system.status_online')
             last_update = st.session_state.last_refresh.strftime('%H:%M:%S')
         else:
             status_color = "status-warning"
-            status_text = "等待数据"
-            last_update = "从未更新"
+            status_text = t('settings.system.status_waiting')
+            last_update = t('dashboard.messages.never_updated')
         
         st.markdown(f"""
         <div style="display: flex; align-items: center; margin: 10px 0;">
             <div class="status-indicator {status_color}"></div>
             <span style="color: white;">{status_text}</span>
         </div>
-        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">最后更新: {last_update}</p>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">{t('settings.system.last_update')}: {last_update}</p>
         """, unsafe_allow_html=True)
         
         # Quick actions
-        st.markdown("### ⚡ 快速操作")
-        if st.button("🔄 快速刷新", use_container_width=True):
+        st.markdown(f"### ⚡ {t('settings.system.quick_actions')}")
+        if st.button(f"🔄 {t('settings.system.quick_refresh')}", use_container_width=True):
             with st.spinner("Refreshing..."):
                 data_service = st.session_state.data_service
                 results = run_async(data_service.refresh_protocol_data())
@@ -1742,15 +1758,15 @@ def main():
                     st.rerun()
     
     # Display page based on selection
-    if selected == "实时数据仪表盘":
+    if selected == t('navigation.dashboard'):
         show_realtime_dashboard()
-    elif selected == "AI智能预测":
+    elif selected == t('navigation.predictions'):
         show_ai_predictions()
-    elif selected == "投资组合优化器":
+    elif selected == t('navigation.optimizer'):
         show_portfolio_optimizer()
-    elif selected == "协议对比分析":
+    elif selected == t('navigation.comparison'):
         show_protocol_comparison()
-    elif selected == "系统设置":
+    elif selected == t('navigation.settings'):
         show_settings()
     
     # Footer

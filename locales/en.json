@@ -1,0 +1,278 @@
+{
+  "app": {
+    "title": "RWA Yield Optimizer Pro",
+    "subtitle": "Professional Real-World Assets Investment Analysis Platform",
+    "description": "AI-powered investment analysis with real-time data and multi-model predictions"
+  },
+  "navigation": {
+    "dashboard": "Real-Time Dashboard",
+    "predictions": "AI Predictions",
+    "optimizer": "Portfolio Optimizer",
+    "comparison": "Protocol Comparison",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "title": "Real-Time Dashboard",
+    "description": "Real-time monitoring of RWA protocol yield data - quickly grasp market dynamics and discover investment opportunities through intuitive charts and indicator cards",
+    "kpi": {
+      "title": "Key Performance Indicators",
+      "total_protocols": "Total Protocols",
+      "average_apy": "Average APY",
+      "total_tvl": "Total TVL",
+      "last_updated": "Last Updated"
+    },
+    "protocols": {
+      "eth_staking": "ETH Staking",
+      "stablecoin_lending": "Stablecoin Lending",
+      "tokenized_real_estate": "Tokenized Real Estate",
+      "fixed_income_bonds": "Fixed Income Bonds",
+      "quantitative_strategy": "Quantitative Strategy Fund"
+    },
+    "controls": {
+      "refresh_data": "Refresh Data",
+      "auto_refresh": "Auto Refresh",
+      "time_range": "Time Range",
+      "system_online": "System Online"
+    },
+    "charts": {
+      "apy_trends": "30-Day APY Trends",
+      "protocol_details": "Protocol Details"
+    },
+    "messages": {
+      "data_updated": "Data updated successfully!",
+      "fetching_data": "Fetching latest data...",
+      "never_updated": "Never",
+      "no_data": "No protocol data available. Please refresh data first.",
+      "no_data_from_dashboard": "No protocol data available. Please refresh data from Dashboard first."
+    }
+  },
+  "predictions": {
+    "title": "AI Smart Predictions",
+    "description": "Multi-model AI collaborative prediction - integrating the wisdom of GPT-4, Claude-3.5, and Gemini-Pro to provide precise yield prediction analysis",
+    "parameters": {
+      "title": "Prediction Parameters",
+      "select_protocol": "Select Protocol",
+      "prediction_timeframe": "Prediction Timeframe",
+      "ai_models": "AI Models",
+      "generate_predictions": "Generate AI Predictions"
+    },
+    "timeframes": {
+      "30d": "30 Days",
+      "90d": "90 Days",
+      "180d": "180 Days",
+      "365d": "365 Days"
+    },
+    "models": {
+      "gpt4": "GPT-4",
+      "claude": "Claude-3.5",
+      "gemini": "Gemini-Pro"
+    },
+    "results": {
+      "title": "Prediction Results",
+      "predicted_apy": "Predicted APY",
+      "confidence_score": "Confidence Score",
+      "expected_change": "Expected Change",
+      "risk_level": "Risk Level"
+    },
+    "analysis": {
+      "ai_details": "AI Analysis Details",
+      "reasoning": "AI Reasoning",
+      "risk_factors": "Risk Factors",
+      "full_report": "Full AI Report",
+      "model_comparison": "Multi-Model Comparison (3D View)"
+    },
+    "messages": {
+      "analyzing": "AI models are analyzing...",
+      "completed": "AI prediction completed!",
+      "failed": "Prediction failed"
+    }
+  },
+  "optimizer": {
+    "title": "Portfolio Optimizer",
+    "description": "Intelligent asset allocation optimization - using Modern Portfolio Theory to intelligently allocate funds across multiple RWA protocols, maximizing returns while controlling risk",
+    "parameters": {
+      "title": "Investment Parameters",
+      "investment_amount": "Investment Amount",
+      "risk_tolerance": "Risk Tolerance",
+      "optimize_portfolio": "Optimize Portfolio"
+    },
+    "risk_levels": {
+      "low": "Low Risk",
+      "medium": "Medium Risk",
+      "high": "High Risk"
+    },
+    "results": {
+      "title": "Portfolio Metrics",
+      "expected_apy": "Expected APY",
+      "expected_return": "Expected Return",
+      "risk_score": "Risk Score",
+      "sharpe_ratio": "Sharpe Ratio"
+    },
+    "visualization": {
+      "portfolio_allocation": "Portfolio Allocation",
+      "investment_amounts": "Investment Amounts",
+      "detailed_allocation": "Detailed Allocation"
+    },
+    "export": {
+      "title": "Export Options",
+      "csv_export": "CSV Export",
+      "json_export": "JSON Export",
+      "generate_report": "Generate Report"
+    },
+    "messages": {
+      "optimizing": "Optimizing portfolio...",
+      "completed": "Portfolio optimization completed!",
+      "failed": "Optimization failed"
+    }
+  },
+  "comparison": {
+    "title": "Protocol Comparison Analysis",
+    "description": "Comprehensive protocol comparison analysis - through multi-dimensional scoring heatmaps and AI intelligent recommendations, gain deep insights into the advantages and disadvantages of various RWA protocols",
+    "selection": {
+      "title": "Select Protocols to Compare",
+      "select_protocols": "Select at least 2 protocols for comparison"
+    },
+    "recommendations": {
+      "title": "AI Smart Investment Recommendations",
+      "description": "Based on current market data, we recommend the following allocation:",
+      "view_details": "View More Details"
+    },
+    "heatmap": {
+      "title": "Multi-Dimensional Protocol Scoring Heatmap",
+      "dimensions": {
+        "apy_score": "APY Score",
+        "safety_score": "Safety Score",
+        "tvl_score": "TVL Score",
+        "liquidity_score": "Liquidity Score",
+        "risk_adjusted": "Risk-Adjusted Return",
+        "market_cap": "Market Cap Score"
+      }
+    },
+    "radar": {
+      "title": "Key Performance Indicators",
+      "categories": {
+        "apy_score": "APY Score",
+        "safety_score": "Safety Score",
+        "liquidity_score": "Liquidity Score",
+        "yield_stability": "Yield Stability",
+        "market_cap_score": "Market Cap Score"
+      }
+    },
+    "table": {
+      "title": "Detailed Comparison Table",
+      "protocol": "Protocol",
+      "apy": "APY (%)",
+      "risk_score": "Risk Score",
+      "asset_type": "Asset Type",
+      "tvl": "TVL",
+      "active_pools": "Active Pools",
+      "min_investment": "Min Investment",
+      "lock_period": "Lock Period",
+      "status": "Status"
+    },
+    "recommendations_section": {
+      "title": "Investment Recommendations",
+      "best_performers": {
+        "highest_apy": "Highest APY",
+        "safest": "Safest",
+        "largest_tvl": "Largest TVL",
+        "best_risk_adjusted": "Best Risk-Adjusted"
+      },
+      "strategies": {
+        "conservative": "Conservative Strategy",
+        "balanced": "Balanced Strategy",
+        "aggressive": "Aggressive Strategy",
+        "diversified": "Diversified Strategy"
+      }
+    },
+    "messages": {
+      "select_protocols": "Please select at least 2 protocols above to see AI-powered investment recommendations.",
+      "detailed_analysis": "Detailed analysis coming soon!"
+    }
+  },
+  "settings": {
+    "title": "System Settings",
+    "description": "Personalized configuration management center - configure API keys, adjust application settings, manage data storage, keeping the system in optimal running condition",
+    "api": {
+      "title": "API Configuration",
+      "openrouter_key": "OpenRouter API Key",
+      "anthropic_key": "Anthropic API Key",
+      "save_keys": "Save API Keys"
+    },
+    "application": {
+      "title": "Application Settings",
+      "auto_refresh": "Auto Refresh",
+      "refresh_interval": "Refresh Interval",
+      "theme": "Theme",
+      "language": "Language",
+      "save_settings": "Save Settings"
+    },
+    "data": {
+      "title": "Data Management",
+      "clean_old_data": "Clean Old Data",
+      "database_stats": "Database Statistics",
+      "reset_data": "Reset All Data",
+      "protocols_count": "protocols in database"
+    },
+    "system": {
+      "title": "System Status",
+      "status_online": "System Online",
+      "status_waiting": "Waiting for Data",
+      "last_update": "Last Update",
+      "quick_actions": "Quick Actions",
+      "quick_refresh": "Quick Refresh"
+    },
+    "messages": {
+      "keys_saved": "API keys saved successfully!",
+      "settings_saved": "Settings saved successfully!",
+      "data_cleaned": "Old data cleaned successfully!",
+      "data_reset": "All data has been reset!",
+      "cannot_undo": "This action cannot be undone!"
+    }
+  },
+  "common": {
+    "buttons": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "refresh": "Refresh",
+      "export": "Export",
+      "import": "Import",
+      "delete": "Delete",
+      "edit": "Edit",
+      "view": "View",
+      "close": "Close",
+      "submit": "Submit"
+    },
+    "status": {
+      "loading": "Loading...",
+      "success": "Success",
+      "error": "Error",
+      "warning": "Warning",
+      "info": "Information",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "time": {
+      "minutes": "minutes",
+      "hours": "hours",
+      "days": "days",
+      "weeks": "weeks",
+      "months": "months",
+      "years": "years"
+    },
+    "units": {
+      "usd": "USD",
+      "percentage": "%",
+      "million": "M",
+      "billion": "B",
+      "thousand": "K"
+    },
+    "messages": {
+      "no_data": "No data available",
+      "loading_data": "Loading data...",
+      "error_loading": "Error loading data",
+      "try_again": "Please try again",
+      "coming_soon": "Coming soon"
+    }
+  }
+}
