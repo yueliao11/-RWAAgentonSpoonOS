@@ -1,5 +1,18 @@
 # 🏦 RWA Yield Analysis & Portfolio Optimization Platform
 
+[![Demo Video](https://img.shields.io/badge/🎥_Demo_Video-Watch_on_YouTube-red?style=for-the-badge&logo=youtube)](https://youtu.be/7RgUgQ0sCkI)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10+-green.svg?style=for-the-badge&logo=python)](https://python.org)
+[![SpoonOS](https://img.shields.io/badge/SpoonOS-Native-purple.svg?style=for-the-badge)](https://spoonos.org)
+
+## 🎬 Live Demo
+
+**Watch the complete platform demonstration:**
+
+[![RWA Yield Optimizer Demo](https://img.youtube.com/vi/7RgUgQ0sCkI/maxresdefault.jpg)](https://youtu.be/7RgUgQ0sCkI)
+
+> 🎯 **6-minute comprehensive walkthrough** showcasing all features including real-time dashboard, AI predictions, portfolio optimization, and protocol comparison tools.
+
 [English](#english) | [中文](#中文)
 
 ---
@@ -10,13 +23,17 @@
 
 **RWA Yield Analysis & Portfolio Optimization Platform** is a cutting-edge SpoonOS-native solution that revolutionizes Real World Assets (RWA) investment analysis through real-time data integration and multi-model AI predictions. This platform addresses the $10+ trillion RWA market with professional-grade tools for yield analysis, risk assessment, and portfolio optimization.
 
+> 📺 **[Watch the full demo video](https://youtu.be/7RgUgQ0sCkI)** to see all features in action!
+
 ### ✨ Key Features
 
-- 🔗 **Real-time Data Integration**: Live TVL and yield data from DeFiLlama API
-- 🤖 **Multi-Model AI Predictions**: Ensemble forecasting using GPT-4, Claude 3.5, and Gemini Pro
-- 📊 **Portfolio Optimization**: Risk-adjusted allocation recommendations
-- 🏦 **Protocol Analysis**: Comprehensive yield and risk assessment
-- 📈 **Professional Reports**: Detailed investment analysis and recommendations
+- 🏠 **Real-Time Dashboard**: Live protocol monitoring with interactive charts and KPI tracking
+- 🤖 **AI Smart Predictions**: Multi-model ensemble (GPT-4, Claude-3.5, Gemini-Pro) with confidence scoring
+- 💼 **Portfolio Optimizer**: Modern Portfolio Theory implementation with 3D visualizations
+- 📊 **Protocol Comparison**: Multi-dimensional heatmaps and radar chart analysis
+- ⚙️ **Professional Interface**: Dark theme GUI with responsive design and real-time updates
+
+**🎥 See all features demonstrated in our [comprehensive video walkthrough](https://youtu.be/7RgUgQ0sCkI)**
 
 ### 🚀 Supported RWA Protocols
 
@@ -30,13 +47,27 @@
 
 ```
 spoon-core/
+├── gui_app_enhanced.py         # Professional GUI interface (Streamlit)
+├── gui_app.py                  # Basic GUI interface
+├── services/
+│   └── data_service.py         # Data management service
+├── database/
+│   └── models.py               # SQLite database models
 ├── defillama_integration.py    # Real-time data connector
 ├── multi_model_predictor.py    # AI ensemble predictions
 ├── simple_rwa_agent.py         # Enhanced RWA agent
 ├── complete_s_level_demo.py    # Complete demonstration
 ├── test_rwa_agent_simple.py    # Functionality testing
+├── deploy_gui.sh               # GUI deployment script
+├── start_gui.sh                # GUI startup script
 └── requirements.txt            # Dependencies
 ```
+
+**GUI Technology Stack:**
+- **Frontend**: Streamlit with custom CSS and dark theme
+- **Visualization**: Plotly for interactive charts and 3D graphics
+- **Database**: SQLite for persistent data storage
+- **Backend**: Async data services with caching
 
 ### 📋 Prerequisites
 
@@ -60,7 +91,11 @@ source rwa_env/bin/activate  # On Windows: rwa_env\\Scripts\\activate
 
 #### 3. Install Dependencies
 ```bash
+# Core dependencies
 pip install -r requirements.txt
+
+# GUI additional dependencies (if using GUI interface)
+pip install streamlit plotly streamlit-option-menu
 ```
 
 #### 4. Configure Environment
@@ -77,7 +112,35 @@ ANTHROPIC_API_KEY=your-openrouter-api-key-here
 
 ### 🎮 Usage
 
-#### Quick Start Demo
+#### 🎬 Watch First: Complete Demo Video
+Before diving into the code, **[watch our 6-minute demo video](https://youtu.be/7RgUgQ0sCkI)** to understand all platform features and capabilities.
+
+#### 🖥️ Professional GUI Interface (Recommended)
+
+**One-Click Deployment:**
+```bash
+# Linux/macOS - Quick deployment
+./deploy_gui.sh && ./start_gui.sh
+
+# Windows - Quick deployment  
+deploy_gui.bat && start_gui.bat
+
+# Manual launch (after setup)
+streamlit run gui_app_enhanced.py
+```
+
+**GUI Features:**
+- 🏠 **Real-Time Dashboard**: Live protocol monitoring with KPI tracking
+- 🤖 **AI Smart Predictions**: Multi-model ensemble with confidence scoring
+- 💼 **Portfolio Optimizer**: Modern Portfolio Theory with 3D visualizations
+- 📊 **Protocol Comparison**: Multi-dimensional heatmaps and radar charts
+- ⚙️ **System Settings**: API configuration and data management
+
+**Access:** Open http://localhost:8501 in your browser
+
+#### 📱 Command Line Interface
+
+**Quick Start Demo:**
 ```bash
 # Run complete S-level demonstration
 python3 complete_s_level_demo.py
@@ -86,7 +149,7 @@ python3 complete_s_level_demo.py
 python3 test_rwa_agent_simple.py
 ```
 
-#### Interactive Agent
+**Interactive Agent:**
 ```bash
 python3 simple_rwa_agent.py
 ```
@@ -176,6 +239,9 @@ Run the test suite:
 # Test all components
 python3 test_rwa_agent_simple.py
 
+# Test GUI functionality
+python3 test_enhanced_gui.py
+
 # Test specific functionality
 python3 -c \"
 import asyncio
@@ -188,6 +254,25 @@ async def test():
 
 asyncio.run(test())
 \"
+```
+
+### 🔧 GUI Troubleshooting
+
+**Common Issues:**
+
+```bash
+# GUI won't start
+source rwa_gui_env/bin/activate  # Activate virtual environment
+pip install streamlit plotly streamlit-option-menu  # Install GUI deps
+
+# Port already in use
+streamlit run gui_app_enhanced.py --server.port=8502
+
+# Database errors
+rm data/rwa_optimizer.db  # Reset database (will recreate automatically)
+
+# Check GUI health
+curl http://localhost:8501/_stcore/health
 ```
 
 ### 🚀 Deployment
@@ -288,13 +373,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **RWA收益分析与投资组合优化平台**是一个前沿的SpoonOS原生解决方案，通过实时数据集成和多模型AI预测革命性地改变了真实世界资产(RWA)投资分析。该平台针对10万亿美元以上的RWA市场，提供专业级的收益分析、风险评估和投资组合优化工具。
 
+> 📺 **[观看完整演示视频](https://youtu.be/7RgUgQ0sCkI)** 了解所有功能特性！
+
 ### ✨ 核心功能
 
-- 🔗 **实时数据集成**: 来自DeFiLlama API的实时TVL和收益数据
-- 🤖 **多模型AI预测**: 使用GPT-4、Claude 3.5和Gemini Pro的集成预测
-- 📊 **投资组合优化**: 风险调整后的配置建议
-- 🏦 **协议分析**: 全面的收益和风险评估
-- 📈 **专业报告**: 详细的投资分析和建议
+- 🏠 **实时数据仪表盘**: 实时协议监控，交互式图表和KPI追踪
+- 🤖 **AI智能预测**: 多模型集成（GPT-4、Claude-3.5、Gemini-Pro）带置信度评分
+- 💼 **投资组合优化器**: 现代投资组合理论实现，3D可视化展示
+- 📊 **协议对比分析**: 多维度热力图和雷达图分析
+- ⚙️ **专业界面**: 深色主题GUI，响应式设计和实时更新
+
+**🎥 在我们的[完整视频演示](https://youtu.be/7RgUgQ0sCkI)中查看所有功能展示**
 
 ### 🚀 支持的RWA协议
 
@@ -308,13 +397,27 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ```
 spoon-core/
+├── gui_app_enhanced.py         # 专业GUI界面 (Streamlit)
+├── gui_app.py                  # 基础GUI界面
+├── services/
+│   └── data_service.py         # 数据管理服务
+├── database/
+│   └── models.py               # SQLite数据库模型
 ├── defillama_integration.py    # 实时数据连接器
 ├── multi_model_predictor.py    # AI集成预测
 ├── simple_rwa_agent.py         # 增强版RWA代理
 ├── complete_s_level_demo.py    # 完整演示
 ├── test_rwa_agent_simple.py    # 功能测试
+├── deploy_gui.sh               # GUI部署脚本
+├── start_gui.sh                # GUI启动脚本
 └── requirements.txt            # 依赖项
 ```
+
+**GUI技术栈：**
+- **前端**: Streamlit配合自定义CSS和深色主题
+- **可视化**: Plotly交互式图表和3D图形
+- **数据库**: SQLite持久化数据存储
+- **后端**: 异步数据服务和缓存机制
 
 ### 📋 系统要求
 
@@ -338,7 +441,11 @@ source rwa_env/bin/activate  # Windows: rwa_env\\Scripts\\activate
 
 #### 3. 安装依赖
 ```bash
+# 核心依赖
 pip install -r requirements.txt
+
+# GUI额外依赖（如果使用GUI界面）
+pip install streamlit plotly streamlit-option-menu
 ```
 
 #### 4. 配置环境
@@ -355,7 +462,35 @@ ANTHROPIC_API_KEY=你的openrouter-api-密钥
 
 ### 🎮 使用方法
 
-#### 快速开始演示
+#### 🎬 首先观看：完整演示视频
+在深入代码之前，**[观看我们6分钟的演示视频](https://youtu.be/7RgUgQ0sCkI)** 了解平台的所有功能和特性。
+
+#### 🖥️ 专业GUI界面（推荐）
+
+**一键部署：**
+```bash
+# Linux/macOS - 快速部署
+./deploy_gui.sh && ./start_gui.sh
+
+# Windows - 快速部署
+deploy_gui.bat && start_gui.bat
+
+# 手动启动（设置完成后）
+streamlit run gui_app_enhanced.py
+```
+
+**GUI功能特性：**
+- 🏠 **实时数据仪表盘**: 实时协议监控和KPI追踪
+- 🤖 **AI智能预测**: 多模型集成带置信度评分
+- 💼 **投资组合优化器**: 现代投资组合理论和3D可视化
+- 📊 **协议对比分析**: 多维度热力图和雷达图
+- ⚙️ **系统设置**: API配置和数据管理
+
+**访问地址：** 在浏览器中打开 http://localhost:8501
+
+#### 📱 命令行界面
+
+**快速开始演示：**
 ```bash
 # 运行完整的S级演示
 python3 complete_s_level_demo.py
@@ -364,7 +499,7 @@ python3 complete_s_level_demo.py
 python3 test_rwa_agent_simple.py
 ```
 
-#### 交互式代理
+**交互式代理：**
 ```bash
 python3 simple_rwa_agent.py
 ```
@@ -454,6 +589,9 @@ class PortfolioAllocation(BaseModel):
 # 测试所有组件
 python3 test_rwa_agent_simple.py
 
+# 测试GUI功能
+python3 test_enhanced_gui.py
+
 # 测试特定功能
 python3 -c \"
 import asyncio
@@ -466,6 +604,25 @@ async def test():
 
 asyncio.run(test())
 \"
+```
+
+### 🔧 GUI故障排除
+
+**常见问题：**
+
+```bash
+# GUI无法启动
+source rwa_gui_env/bin/activate  # 激活虚拟环境
+pip install streamlit plotly streamlit-option-menu  # 安装GUI依赖
+
+# 端口被占用
+streamlit run gui_app_enhanced.py --server.port=8502
+
+# 数据库错误
+rm data/rwa_optimizer.db  # 重置数据库（会自动重新创建）
+
+# 检查GUI健康状态
+curl http://localhost:8501/_stcore/health
 ```
 
 ### 🚀 部署
