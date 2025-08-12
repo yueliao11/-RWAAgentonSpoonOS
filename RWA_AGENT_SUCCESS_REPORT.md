@@ -9,7 +9,7 @@
 ### 1. API密钥配置
 ```bash
 export ANTHROPIC_BASE_URL=https://openrouter.ai/api/v1
-export ANTHROPIC_AUTH_TOKEN=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
+export ANTHROPIC_AUTH_TOKEN=sk-or-v1-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 ### 2. 虚拟环境设置
@@ -21,9 +21,9 @@ pip install python-dotenv pydantic
 
 ### 3. 环境变量文件 (.env)
 ```env
-ANTHROPIC_API_KEY=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
+ANTHROPIC_API_KEY=sk-or-v1-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ANTHROPIC_BASE_URL=https://openrouter.ai/api/v1
-OPENAI_API_KEY=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
+OPENAI_API_KEY=sk-or-v1-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 OPENAI_BASE_URL=https://openrouter.ai/api/v1
 ```
 

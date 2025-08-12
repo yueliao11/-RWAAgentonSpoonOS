@@ -9,10 +9,10 @@ import asyncio
 import os
 import sys
 
-# Set environment variables directly
-os.environ['ANTHROPIC_API_KEY'] = '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'
-os.environ['ANTHROPIC_BASE_URL'] = 'https://openrouter.ai/api/v1'
-os.environ['OPENAI_API_KEY'] = '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'
+# Set environment variables from environment (fallback to empty if not set)
+os.environ['ANTHROPIC_API_KEY'] = os.getenv('ANTHROPIC_API_KEY', '')
+os.environ['ANTHROPIC_BASE_URL'] = os.getenv('ANTHROPIC_BASE_URL', 'https://openrouter.ai/api/v1')
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY', '')
 os.environ['OPENAI_BASE_URL'] = 'https://openrouter.ai/api/v1'
 
 # Add the project root to Python path
